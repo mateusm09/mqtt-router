@@ -1,14 +1,20 @@
 import { MqttClient, connect } from 'mqtt';
 import * as regexp from 'path-to-regexp';
 
-export async function initMqttClient(host: string, port?: number, clientId?: string): Promise<MqttClient> {
+export async function initMqttClient(
+    host: string,
+    port?: number,
+    clientId?: string,
+    username?: string,
+    password?: string
+): Promise<MqttClient> {
     return new Promise((resolve, reject) => {
         const mqttClient = connect({
             host,
             port,
             clientId,
-            username: process.env.MQTT_USER,
-            password: process.env.MQTT_PASSWORD,
+            username,
+            password,
         });
 
         mqttClient.once('connect', () => {
