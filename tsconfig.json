@@ -17,6 +17,7 @@
             "./src/@types",
             "./node_modules/@types"
         ],
+        "declaration": true
     },
     "exclude": [
         "node_modules",
