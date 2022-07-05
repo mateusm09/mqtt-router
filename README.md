@@ -1,11 +1,3 @@
-# Typescript Boilerplate
+# MQTT Router
 
-Projeto template com typescript pré-configurado
-
-## Ferramentas adicionadas: 
-- Typescript
-- Jest 
-- ESLint
-- Babel
-- Prettier
-- Nodemon
+MQTT Router that works with MQTT.js and mainly compatible eith EMQX.

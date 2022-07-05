@@ -1,33 +1,39 @@
 {
-  "name": "ts-boilerplate",
-  "version": "0.0.1",
-  "description": "typescripy boilerplate",
-  "main": "index.js",
-  "repository": "https://github.com/mindtechtecnologia/ts-backend-boilerplate.git",
-  "author": "Mateus Mello ",
-  "license": "MIT",
-  "private": true,
-  "devDependencies": {
-    "@types/jest": "^28.1.3",
-    "@typescript-eslint/eslint-plugin": "^5.30.0",
-    "@typescript-eslint/parser": "^5.30.0",
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^28.1.1",
-    "babel-preset-env": "^1.7.0",
-    "eslint": "^8.18.0",
-    "eslint-config-prettier": "^8.5.0",
-    "jest": "^28.1.1",
-    "nodemon": "^2.0.18",
-    "ts-jest": "^28.0.5",
-    "ts-node": "^10.8.1",
-    "typescript": "^4.7.4"
-  },
-  "scripts": {
-    "test": "jest",
-    "lint": "eslint --ext .ts,.js src",
-    "lint:fix": "eslint --ext .ts,.js src --fix",
-    "build": "tsc -p .",
-    "debug": "nodemon src/index.ts",
-    "start": "ts-node src/index.ts"
-  }
+    "name": "mqtt-router",
+    "version": "0.0.1",
+    "description": "mqtt router for mqtt.js",
+    "main": "lib/index.js",
+    "repository": "https://github.com/mateusm09/mqtt-router.git",
+    "author": "Mateus Mello",
+    "license": "MIT",
+    "private": false,
+    "devDependencies": {
+        "@types/jest": "^28.1.3",
+        "@types/node": "^18.0.1",
+        "@types/path-to-regexp": "^1.7.0",
+        "@typescript-eslint/eslint-plugin": "^5.30.0",
+        "@typescript-eslint/parser": "^5.30.0",
+        "babel-cli": "^6.26.0",
+        "babel-jest": "^28.1.1",
+        "babel-preset-env": "^1.7.0",
+        "eslint": "^8.18.0",
+        "eslint-config-prettier": "^8.5.0",
+        "jest": "^28.1.1",
+        "nodemon": "^2.0.18",
+        "ts-jest": "^28.0.5",
+        "ts-node": "^10.8.1",
+        "typescript": "^4.7.4"
+    },
+    "scripts": {
+        "test": "jest",
+        "lint": "eslint --ext .ts,.js src",
+        "lint:fix": "eslint --ext .ts,.js src --fix",
+        "build": "tsc -p .",
+        "debug": "nodemon src/index.ts",
+        "start": "ts-node src/index.ts"
+    },
+    "dependencies": {
+        "mqtt": "^4.3.7",
+        "path-to-regexp": "^6.2.1"
+    }
 }
