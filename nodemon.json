@@ -1,0 +1,8 @@
+{
+    "execMap": {
+        "ts": "node --inspect=0.0.0.0:5001 -r ts-node/register"
+    },
+    "ignore": ["test/**/*.ts", "test/**/*.test.ts", ".git", "src/tests/*", "node_modules"],
+    "watch": ["./src"],
+    "ext": "ts,js,json,yaml,yml"
+}

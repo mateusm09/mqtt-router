@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+node_modules/
+build/
+tmp/
+temp/
+coverage/
+logs/
+
+.env*
+!.env.example
+
+README.html
