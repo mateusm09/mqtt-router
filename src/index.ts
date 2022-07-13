@@ -50,6 +50,7 @@ export class MqttRouter {
         keys: regexp.Key[];
         topicRegexp: RegExp;
         listener: IRouteCallback;
+        topic: string;
     }>;
 
     constructor(client: MqttClient, context?: any) {
@@ -100,18 +101,21 @@ export class MqttRouter {
             keys,
             topicRegexp,
             listener,
+            topic: subscribeTopic,
         });
     }
 
     public removeListeners() {
-        this.mqttClient.removeAllListeners('message');
+        this.mqttClient.removeListener('message', this.onMessage);
+
+        const topics = this.topicListeners.map((item) => item.topic);
+        this.mqttClient.unsubscribe(topics);
+        this.topicListeners = [];
     }
 
     public removeListener(topic: string, listener: IRouteCallback) {
         //find the listener by its reference
-        const listenerIndex = this.topicListeners.findIndex(
-            (item) => item.listener === listener
-        );
+        const listenerIndex = this.topicListeners.findIndex((item) => item.listener === listener);
 
         if (listenerIndex !== -1) this.topicListeners.splice(listenerIndex, 1);
 
