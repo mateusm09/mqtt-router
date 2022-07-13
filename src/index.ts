@@ -96,16 +96,6 @@ export class MqttRouter {
         const subscribeTopic = paramToWildcard(_topicName); // converts topic params to MQTT + wildcard
         this.mqttClient.subscribe(subscribeTopic);
 
-        // arrow functions doesn't have a prototype,
-        // so it we need to create one if the function doesn't have it defined
-        // ? this have some uncentainty if it works 100%
-        // ? it'll be in this way until I find a better way to do it
-        if (!listener.prototype) {
-            listener.prototype = {};
-        }
-
-        listener.prototype.id = Date.now();
-
         this.topicListeners.push({
             keys,
             topicRegexp,
@@ -118,8 +108,9 @@ export class MqttRouter {
     }
 
     public removeListener(topic: string, listener: IRouteCallback) {
+        //find the listener by its reference
         const listenerIndex = this.topicListeners.findIndex(
-            (item) => item.listener.prototype.id === listener.prototype.id
+            (item) => item.listener === listener
         );
 
         if (listenerIndex !== -1) this.topicListeners.splice(listenerIndex, 1);
