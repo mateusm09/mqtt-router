@@ -91,7 +91,7 @@ export class MqttRouter {
 
 		// checks if the topic has a shared subscription modifier, and replaces it
 		// to generate a topic regexp, but subscribes the client with the modifier
-		const topicName = _topicName.replace(/\$queue\/|\$share\/.\//g, "");
+		const topicName = _topicName.replace(/\$queue\/|\$share\/[^\/]+(?=\/)\//g, "");
 
 		const topicRegexp = regexp.pathToRegexp(topicName, keys); // topic's regex
 		const subscribeTopic = paramToWildcard(_topicName); // converts topic params to MQTT + wildcard
